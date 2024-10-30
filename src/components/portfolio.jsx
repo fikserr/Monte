@@ -3,7 +3,7 @@ import { useState } from "react";
 import portfolioOne from "../images/portfolioOne.jpeg";
 import portfolioTwo from "../images/portfolioTwo.jpeg";
 import portfolioThree from "../images/portfolioThree.jpeg";
-import portfolioFour from "../images/portfoliofour.jpeg";
+import portfolioFour from "../images/portfolioFour.jpeg";
 import map from "../images/map.png";
 
 function Portfolio() {
