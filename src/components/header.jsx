@@ -1,6 +1,6 @@
-import logo from "../images/logo.png";
-import RoundedImage from "../images/RoundedImage.jpeg";
-import headOne from "../images/headOne.jpeg";
+import logo from "../images/logo.webp";
+import RoundedImage from "../images/RoundedImage.webp";
+import headOne from "../images/headOne.webp";
 
 function Header() {
   return (

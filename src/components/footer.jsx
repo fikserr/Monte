@@ -1,6 +1,6 @@
-import logo from "../images/logo.png";
-import footerMap from "../images/mapFooter.png";
-import teammateOne from "../images/teammateOne.jpeg";
+import logo from "../images/logo.webp";
+import footerMap from "../images/mapFooter.webp";
+import teammateOne from "../images/teammateOne.webp";
 
 function Footer() {
   return (

@@ -1,10 +1,9 @@
 import { useState } from "react";
-
-import portfolioOne from "../images/portfolioOne.jpeg";
-import portfolioTwo from "../images/portfolioTwo.jpeg";
-import portfolioThree from "../images/portfolioThree.jpeg";
-import portfolioFour from "../images/portfolioFour.jpeg";
-import map from "../images/map.png";
+import portfolioOne from "../images/portfolioOne.webp";
+import portfolioTwo from "../images/portfolioTwo.webp";
+import portfolioThree from "../images/portfolioThree.webp";
+import portfolioFour from "../images/portfolioFour.webp";
+import map from "../images/map.webp";
 
 function Portfolio() {
   const [isActive, setIsActive] = useState("Apartments");

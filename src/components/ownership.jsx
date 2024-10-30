@@ -1,7 +1,7 @@
-import sales from "../images/sales.jpeg";
-import roundedImage from "../images/RoundedImage.jpeg";
-import investment from "../images/invesment.jpeg";
-import market from "../images/market.jpeg";
+import sales from "../images/sales.webp";
+import roundedImage from "../images/RoundedImage.webp";
+import investment from "../images/invesment.webp";
+import market from "../images/market.webp";
 
 function Ownership() {
   return (

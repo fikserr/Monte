@@ -1,8 +1,8 @@
-import teammateOne from "../images/teammateOne.jpeg";
-import teammateTwo from "../images/teammateTwo.jpeg";
-import teammateThree from "../images/teammateThree.jpeg";
-import teammateFour from "../images/teammateFour.jpeg";
-import partnersImg from "../images/partnersImg.jpeg";
+import teammateOne from "../images/teammateOne.webp";
+import teammateTwo from "../images/teammateTwo.webp";
+import teammateThree from "../images/teammateThree.webp";
+import teammateFour from "../images/teammateFour.webp";
+import partnersImg from "../images/partnersImg.webp";
 
 function Building() {
   return (

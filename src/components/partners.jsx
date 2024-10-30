@@ -1,11 +1,11 @@
-import deyaar from "../images/deyaar.png";
-import danube from "../images/danube.png";
-import meydan from "../images/meydan.png";
-import meras from "../images/meraas.png";
-import damac from "../images/damac.png";
-import emaar from "../images/emaar.png";
-import nakheel from "../images/nakheel.png";
-import sobha from "../images/sobha.png";
+import deyaar from "../images/deyaar.webp";
+import danube from "../images/danube.webp";
+import meydan from "../images/meydan.webp";
+import meras from "../images/meraas.webp";
+import damac from "../images/damac.webp";
+import emaar from "../images/emaar.webp";
+import nakheel from "../images/nakheel.webp";
+import sobha from "../images/sobha.webp";
 
 function Partners() {
 

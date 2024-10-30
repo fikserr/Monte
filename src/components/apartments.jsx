@@ -1,4 +1,4 @@
-import apartmentImage from "../images/apartment.png";
+import apartmentImage from "../images/apartment.webp";
 
 function Apartments() {
   return (

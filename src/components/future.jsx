@@ -1,4 +1,4 @@
-import future from "../images/future.png";
+import future from "../images/future.webp";
 
 function Future() {
   return (
