@@ -5,7 +5,7 @@ import danube from "../images/danube.webp";
 import meydan from "../images/meydan.webp";
 import meras from "../images/meraas.webp";
 import damac from "../images/damac.webp";
-import emaar from "../images/emaar.webp";
+import emaar from "../images/Emaar.webp";
 import nakheel from "../images/nakheel.webp";
 import sobha from "../images/sobha.webp";
 
@@ -15,10 +15,10 @@ const Logos = () => {
   useEffect(() => {
 
     gsap.fromTo(
-      logoRef.current, // text.current ishlatildi
-      { x: "50%" }, // O'ngdan boshlanish
+      logoRef.current, 
+      { x: "50%" }, 
       {
-        x: "-100%", // Chapga harakatlanish
+        x: "-100%", 
         duration: 20,
         repeat: -1,
         ease: "linear",
