@@ -30,4 +30,8 @@
   font-style: normal;
 }
 
+.swiper-wrapper{
+  display: flex;
+  height: 100%;
+}
   

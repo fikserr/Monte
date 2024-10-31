@@ -4,10 +4,10 @@ import teammateOne from "../images/teammateOne.webp";
 
 function Footer() {
   return (
-    <div className="py-20 bg-[#F8F5F2] md:h-[810px]">
-      <div className="container md:flex md:flex-col md:justify-between h-full">
+    <div className="py-20 bg-[#F8F5F2] xl:h-[810px]">
+      <div className="container xl:flex xl:flex-col xl:justify-between h-full">
 
-        <div className="md:flex md:justify-between md:items-start">
+        <div className="xl:flex xl:justify-between xl:items-start">
           <div>
             <img src={logo} alt="logo" className="w-[170px]" />
             <p className="pt-5 font-montreal font-normal text-sm">
@@ -15,34 +15,33 @@ function Footer() {
             </p>
           </div>
 
-          <div className="pt-[60px] w-[350px] md:p-0 md:w-[130px]">
+          <div className="pt-[60px] w-[350px] xl:p-0 xl:w-[130px]">
             <p className="font-montreal text-base pb-[30px]">Quick Navigation</p>
-            <div className="flex flex-col flex-wrap gap-x-12 gap-y-5 h-[100px] md:h-full">
+            <div className="flex flex-col flex-wrap gap-x-12 gap-y-5 h-[100px] xl:h-full">
               {["Home", "Our Properties", "Our Advantages", "Our Services"].map((item) => (
                 <h6 key={item} className="font-montreal font-medium text-lg">{item}</h6>
               ))}
             </div>
           </div>
 
-          <div className="md:p-0">
-            {/* Contact Section */}
-            <div className="hidden md:flex items-center gap-[11px] w-[210px] md:w-[304px] h-[98px]">
+          <div className="xl:p-0">
+          
+            <div className="hidden xl:flex items-center gap-[11px] w-[210px] xl:w-[304px] h-[98px]">
               <img
                 src={teammateOne}
                 alt="team member"
-                className="object-cover object-center h-[50px] w-[50px] rounded-full md:w-[60px] md:h-[60px]"
+                className="object-cover object-center h-[50px] w-[50px] rounded-full xl:w-[60px] xl:h-[60px]"
               />
-              <div className="w-[132px] md:w-[167px]">
-                <p className="text-[#23232380] text-[10px] md:text-[12px]">Monte Founder</p>
-                <h5 className="text-sm md:text-lg">Ethan Thompson</h5>
+              <div className="w-[132px] xl:w-[167px]">
+                <p className="text-[#23232380] text-[10px] xl:text-[12px]">Monte Founder</p>
+                <h5 className="text-sm xl:text-lg">Ethan Thompson</h5>
               </div>
             </div>
-            <h5 className="text-[22px] pt-[30px] hidden md:flex">
+            <h5 className="text-[22px] pt-[30px] hidden xl:flex">
               We are here to change <br /> your future.
             </h5>
 
-            {/* Buttons */}
-            <div className="flex gap-5 pt-[60px] md:pt-[30px]">
+            <div className="flex gap-5 pt-[60px] xl:pt-[30px]">
               <button className="py-2 px-[15px] bg-[#141414] rounded-[80px] text-sm text-white">
                 Contact Us
               </button>
@@ -66,8 +65,8 @@ function Footer() {
         </div>
 
 
-        <div className="relative w-full md:flex md:flex-row-reverse md:justify-between">
-          <div className="hidden md:flex flex-col justify-end h-full">
+        <div className="relative w-full xl:flex xl:flex-row-reverse xl:justify-between">
+          <div className="hidden xl:flex flex-col justify-end h-full">
             <p className="font-montreal text-sm text-[#00000080]">Copyright 2023 © Golden Gate Properties</p>
             <div className="flex justify-between pt-4">
               {["Terms Of Service", "Privacy Policy"].map((text) => (
@@ -76,7 +75,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="pt-16 md:p-0">
+          <div className="pt-16 xl:p-0">
             <img src={footerMap} alt="map" />
             <h6 className="font-montreal text-base pt-5">
               123 Zayed Road, <br />
@@ -85,12 +84,12 @@ function Footer() {
             </h6>
           </div>
 
-          <div className="pt-[60px] md:p-0">
-            <h5 className="font-montreal text-xl md:text-[22px]">Subscribe to our news</h5>
-            <p className="font-montreal text-sm text-[#00000080] md:w-[327px] pt-5">
+          <div className="pt-[60px] xl:p-0">
+            <h5 className="font-montreal text-xl xl:text-[22px]">Subscribe to our news</h5>
+            <p className="font-montreal text-sm text-[#00000080] xl:w-[327px] pt-5">
               Stay Informed and Never Miss a Beat: Subscribe to Our Exclusive News Updates!
             </p>
-            <div className="flex items-center w-full gap-[26px] pt-[33px] md:flex-col md:items-start">
+            <div className="flex items-center w-full gap-[26px] pt-[33px] xl:flex-col xl:items-start">
               <input
                 type="text"
                 placeholder="Enter your email"

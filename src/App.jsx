@@ -9,6 +9,7 @@ import Property from './components/property'
 import Partners from './components/partners'
 import Footer from './components/footer'
 
+
 function App() {
   return (
     <div>

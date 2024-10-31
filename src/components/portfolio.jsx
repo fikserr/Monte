@@ -1,33 +1,96 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import portfolioOne from "../images/portfolioOne.webp";
 import portfolioTwo from "../images/portfolioTwo.webp";
 import portfolioThree from "../images/portfolioThree.webp";
 import portfolioFour from "../images/portfolioFour.webp";
 import map from "../images/map.webp";
+import BtnInfo from "../ui/btnInfo";
+import Location from "../icons/location";
+import Brush from "../icons/brush";
+import Sofa from "../icons/sofa";
 
 function Portfolio() {
   const [isActive, setIsActive] = useState("Apartments");
+  const PortfolioTitleRef = useRef(null)
+  const PortfolioButtonRef = useRef(null)
+  const PortfolioCardRef = useRef(null)
+  const PortfolioBottomRef = useRef(null)
+
 
   const handleClick = (el) => {
     setIsActive(el);
   };
 
+  useEffect(() => {
+    gsap.fromTo(
+      PortfolioTitleRef.current,
+      { x: -1200 },
+      {
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger:  PortfolioTitleRef.current,
+
+          
+        },
+      }
+    );
+    gsap.fromTo(
+      PortfolioButtonRef.current,
+      { x: 1200 },
+      {
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger:  PortfolioButtonRef.current,
+
+          
+        },
+      }
+    );
+    gsap.fromTo(
+      PortfolioCardRef.current,
+      {y:10, opacity: 0, },
+      {
+        y:0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger:  PortfolioCardRef.current,
+        },
+      }
+    );
+    gsap.fromTo(
+      PortfolioBottomRef.current,
+      { x: 1200 },
+      {
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger:  PortfolioBottomRef.current, 
+        },
+      }
+    );
+  }, []);
+
   return (
     <div className="bg-[#232323] py-20">
       <div className="container">
-        <div className=" w-full md:flex md:flex-col md:items-end">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-            <h1 className="font-montreal font-normal text-4xl text-white text-center md:text-[56px]">
+        <div className="w-full xl:flex xl:flex-col xl:items-end">
+          <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center xl:w-full">
+            <h1 ref={PortfolioTitleRef} className="font-montreal font-normal text-4xl text-white text-center xl:text-[56px] ">
               Explore Our Property Portfolio
             </h1>
-            <div className="flex items-center justify-between bg-[#FFFFFF1A] p-1 rounded-lg mt-10 md:mt-0">
+            <div ref={PortfolioButtonRef} className="flex items-center justify-between bg-[#FFFFFF1A] p-1 rounded-lg mt-10 xl:mt-0">
               <button
                 onClick={() => handleClick("Apartments")}
                 className={`font-montreal font-normal text-base px-4 py-[10px] rounded-lg ${
-                  isActive === "Apartments"
-                    ? "bg-white text-black"
-                    : "text-white"
+                  isActive === "Apartments" ? "bg-white text-black" : "text-white"
                 }`}
+                
               >
                 Apartments
               </button>
@@ -50,139 +113,72 @@ function Portfolio() {
             </div>
           </div>
 
-          <div className="images grid grid-cols-1 gap-7 pt-10 md:grid-cols-2">
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px] ">
+          <div className="images grid grid-cols-1 gap-7 pt-10 xl:grid-cols-2">
+            <div ref={PortfolioCardRef} className="card h-[418px] w-full rounded-2xl overflow-hidden relative xl:h-[714px] ">
               <img
                 src={portfolioOne}
                 alt="image"
+                loading="lazy"
                 className="w-full h-full object-cover object-center"
               />
-              <div className="content p-4 w-full h-full absolute top-0 flex flex-col justify-between md:p-6">
+              <div className="content p-4 w-full h-full absolute top-0 flex flex-col justify-between xl:p-6">
                 <div className="flex justify-between top ">
-                  <h5 className="font-montreal font-bold text-white text-lg w-40 md:text-2xl md:w-52">
+                  <h5 className="font-montreal font-bold text-white text-lg w-40 xl:text-2xl xl:w-52">
                     Azure Heights Luxury Residences
                   </h5>
-                  <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full md:w-[52px] md:h-[52px]">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 13L13 1"
-                        stroke="#232323"
-                        stroke-width="0.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M1 1H13V13"
-                        stroke="#232323"
-                        stroke-width="0.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </button>
+                  <BtnInfo />
                 </div>
-                <div className="absolute bottom-4 right-6 flex flex-col items-end w-full">
-                  <div className="hidden h-[73px] w-[169px] rounded-[19px] right-0 bg-[#D5E7EE] justify-center items-center md:flex">
-                    <svg
-                      width="20"
-                      height="24"
-                      viewBox="0 0 20 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 10C19 17 10 23 10 23C10 23 1 17 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
-                        stroke="black"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z"
-                        stroke="black"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div className="absolute bottom-4 left-0 p-4 flex flex-col items-start xl:items-end w-full">
+                  <div className="hidden h-[73px] gap-1 w-[169px] rounded-[19px] right-0 bg-[#D5E7EE] justify-center items-center xl:flex">
+                    <Location />
 
                     <p className="font-jakarta font-medium text-base ">
                       Dubai Marina
                     </p>
                   </div>
-                  <div className="info_home flex gap-1 pt-[10px] overflow-scroll md:overflow-visible md:justify-between ">
-                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between md:w-28 md:h-[82px]">
-                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] md:text-xs">
+                  <div className="info_home flex gap-1 pt-[10px]  xl:justify-between ">
+                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between xl:w-28 xl:h-[82px]">
+                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] xl:text-xs">
                         Price
                       </p>
-                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm md:text-base">
+                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm xl:text-base">
                         from $290k
                       </h6>
                     </div>
 
-                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between md:w-28 md:h-[82px]">
-                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] md:text-xs">
+                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between xl:w-28 xl:h-[82px]">
+                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] xl:text-xs">
                         Installment Plan
                       </p>
-                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm md:text-base">
+                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm xl:text-base">
                         for 10 years
                       </h6>
                     </div>
 
-                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between md:w-28 md:h-[82px]">
-                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] md:text-xs">
+                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between xl:w-28 xl:h-[82px]">
+                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] xl:text-xs">
                         Initial Payment
                       </p>
-                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm md:text-base">
+                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm xl:text-base">
                         $30,000
                       </h6>
                     </div>
 
-                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between md:w-28 md:h-[82px]">
-                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] md:text-xs">
+                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between xl:w-28 xl:h-[82px]">
+                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] xl:text-xs">
                         Upgraded Features
                       </p>
                       <h6 className="flex gap-4">
-                        <svg
-                          width="19"
-                          height="20"
-                          viewBox="0 0 19 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M15 4H16C16.5304 4 17.0391 4.21071 17.4142 4.58579C17.7893 4.96086 18 5.46957 18 6C18 7.32608 17.4732 8.59785 16.5355 9.53553C15.5979 10.4732 14.3261 11 13 11H8V13M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H13C13.5304 1 14.0391 1.21071 14.4142 1.58579C14.7893 1.96086 15 2.46957 15 3V5C15 5.53043 14.7893 6.03914 14.4142 6.41421C14.0391 6.78929 13.5304 7 13 7H3C2.46957 7 1.96086 6.78929 1.58579 6.41421C1.21071 6.03914 1 5.53043 1 5V3ZM6 14C6 13.7348 6.10536 13.4804 6.29289 13.2929C6.48043 13.1054 6.73478 13 7 13H9C9.26522 13 9.51957 13.1054 9.70711 13.2929C9.89464 13.4804 10 13.7348 10 14V18C10 18.2652 9.89464 18.5196 9.70711 18.7071C9.51957 18.8946 9.26522 19 9 19H7C6.73478 19 6.48043 18.8946 6.29289 18.7071C6.10536 18.5196 6 18.2652 6 18V14Z"
-                            stroke="#232323"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        <svg
-                          width="22"
-                          height="20"
-                          viewBox="0 0 22 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M4.02539 8V4C4.02539 3.20435 4.34146 2.44129 4.90407 1.87868C5.46668 1.31607 6.22974 1 7.02539 1H15.0254C15.821 1 16.5841 1.31607 17.1467 1.87868C17.7093 2.44129 18.0254 3.20435 18.0254 4V8M15.0254 13V11C15.0254 10.4067 15.2013 9.82664 15.531 9.33329C15.8606 8.83994 16.3292 8.45543 16.8773 8.22836C17.4255 8.0013 18.0287 7.94189 18.6107 8.05765C19.1926 8.1734 19.7272 8.45912 20.1467 8.87868C20.5663 9.29824 20.852 9.83279 20.9677 10.4147C21.0835 10.9967 21.0241 11.5999 20.797 12.1481C20.57 12.6962 20.1854 13.1648 19.6921 13.4944C19.1988 13.8241 18.6187 14 18.0254 14V17H4.02539V14C3.43205 14 2.85203 13.8241 2.35868 13.4944C1.86533 13.1648 1.48082 12.6962 1.25375 12.1481C1.02669 11.5999 0.96728 10.9967 1.08304 10.4147C1.19879 9.83279 1.48451 9.29824 1.90407 8.87868C2.32363 8.45912 2.85818 8.1734 3.44012 8.05765C4.02206 7.94189 4.62526 8.0013 5.17344 8.22836C5.72162 8.45543 6.19016 8.83994 6.5198 9.33329C6.84944 9.82664 7.02539 10.4067 7.02539 11V13M7.02539 10H15.0254M6.02539 17V19M16.0254 17V19"
-                            stroke="#232323"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
+                        <Brush />
+                        <Sofa />
                       </h6>
                     </div>
 
-                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between md:w-28 md:h-[82px]">
-                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] md:text-xs">
+                    <div className="bg-white w-24 h-14 rounded-[10px] p-2 flex flex-col justify-between xl:w-28 xl:h-[82px]">
+                      <p className="font-jakarta font-medium text-[#2E2F3080] text-[10px] xl:text-xs">
                         Completion Date
                       </p>
-                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm md:text-base">
+                      <h6 className="font-jakarta font-medium text-[#2E2F30] text-sm xl:text-base">
                         09/2025
                       </h6>
                     </div>
@@ -191,194 +187,50 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px]">
-              <img
-                src={portfolioTwo}
-                alt="image"
-                className="w-full h-full object-cover object-center"
-              />
-
-              <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full absolute top-4 right-4 md:w-[52px] md:h-[52px]">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+            {[ portfolioTwo, portfolioThree, portfolioFour,portfolioOne].map(
+              (image, index) => (
+                <div
+                  ref={PortfolioCardRef}
+                  key={`portfolio-${index}`}
+                  className="card h-[418px] w-full rounded-2xl overflow-hidden relative xl:h-[714px] "
                 >
-                  <path
-                    d="M1 13L13 1"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                  <img
+                    src={image}
+                    alt="portfolio"
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center"
                   />
-                  <path
-                    d="M1 1H13V13"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <h5 className="font-montreal font-bold text-white text-lg absolute bottom-4 left-4">
-                Azure Heights Luxury Residences
-              </h5>
-            </div>
+                  <BtnInfo  key={`btn-${index}`} />
+                  
+                  <h5 className="font-montreal font-bold text-white text-lg absolute bottom-4 left-4">
+                    Azure Heights Luxury Residences
+                  </h5>
+                </div>
+              )
+            )}
 
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px]">
-              <img
-                src={portfolioThree}
-                alt="image"
-                className="w-full h-full object-cover object-center"
-              />
-
-              <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full absolute top-4 right-4 md:w-[52px] md:h-[52px]">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 13L13 1"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M1 1H13V13"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <h5 className="font-montreal font-bold text-white text-lg absolute bottom-4 left-4">
-                Azure Heights Luxury Residences
-              </h5>
-            </div>
-
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px]">
-              <img
-                src={portfolioFour}
-                alt="image"
-                className="w-full h-full object-cover object-center"
-              />
-
-              <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full absolute top-4 right-4 md:w-[52px] md:h-[52px]">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 13L13 1"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M1 1H13V13"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <h5 className="font-montreal font-bold text-white text-lg absolute bottom-4 left-4">
-                Azure Heights Luxury Residences
-              </h5>
-            </div>
-
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px]">
-              <img
-                src={portfolioOne}
-                alt="image"
-                className="w-full h-full object-cover object-center"
-              />
-
-              <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full absolute top-4 right-4 md:w-[52px] md:h-[52px]">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 13L13 1"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M1 1H13V13"
-                    stroke="#232323"
-                    stroke-width="0.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <h5 className="font-montreal font-bold text-white text-lg absolute bottom-4 left-4">
-                Azure Heights Luxury Residences
-              </h5>
-            </div>
-
-            <div className="card h-[418px] w-full rounded-2xl overflow-hidden relative md:h-[714px]">
+            <div ref={PortfolioCardRef} className="card h-[418px] w-full rounded-2xl overflow-hidden relative xl:h-[714px]">
               <img
                 src={map}
                 alt="image"
+                loading="lazy"
                 className="w-full h-full object-cover object-center"
               />
               <div className="flex w-full justify-between absolute top-0 p-4">
                 <button className="font-montreal font-normal text-sm bg-white px-[15px] py-2 rounded-[80px]">
                   Find On The Map
                 </button>
-                <button className="flex justify-center items-center bg-white w-9 h-9 rounded-full md:w-[52px] md:h-[52px]">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 13L13 1"
-                      stroke="#232323"
-                      stroke-width="0.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M1 1H13V13"
-                      stroke="#232323"
-                      stroke-width="0.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
+                <BtnInfo />
               </div>
             </div>
           </div>
 
-          <div className="flex items-center flex-col pt-10 md:pt-20 md:flex-row md:items-end justify-between md:w-[55%] ">
-            <button className="bg-[#D5E7EE] w-[121px] h-10 rounded-[80px] font-montreal font-medium text-base mb-20 md:mb-0">
+          <div ref={PortfolioBottomRef} className="flex items-center flex-col pt-10 xl:pt-20 xl:flex-row xl:items-end justify-between xl:w-[55%] ">
+            <button className="bg-[#D5E7EE] w-[121px] h-10 rounded-[80px] font-montreal font-medium text-base mb-20 xl:mb-0">
               All Properties
             </button>
-            <div className="md:flex md:gap-16 ">
-              <h5 className="font-montreal font-medium text-base text-white text-center pb-6 md:pb-0">
+            <div className="xl:flex xl:gap-16 ">
+              <h5 className="font-montreal font-medium text-base text-white text-center pb-6 xl:pb-0">
                 Don't Miss Out on Hot Deals! <br /> Follow Us on Social Media
               </h5>
               <div className="social flex gap-2 justify-center">
